@@ -24,8 +24,8 @@ This repository contains the code necessary to generate the training dataset and
 The paper is currently under review for ISIT 2025.
 
 ## Authors info
-Valerio Bioglio: https://scholar.google.com/citations?user=ZMGylHoAAAAJ&hl=en
-Gastón De Boni Rovella: https://scholar.google.com/citations?user=ZcM9QRUAAAAJ&hl=en&authuser=1
+Valerio Bioglio: https://scholar.google.com/citations?user=ZMGylHoAAAAJ&hl=en <br />
+Gastón De Boni Rovella: https://scholar.google.com/citations?user=ZcM9QRUAAAAJ&hl=en&authuser=1 <br />
 Meryem Benammar: https://scholar.google.fr/citations?user=mj06WA0AAAAJ&hl=fr
     
 ## License
