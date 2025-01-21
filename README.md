@@ -2,7 +2,8 @@
 Implementation of neural networks for estimating the decoding equations of polar codes with arbitrary kernel size.
 
 ## Disclaimer
-The repository is in constant change. The uploaded model was trained using TensorFlow 2.18.0.
+1) The repository is in constant change. The uploaded model was trained using TensorFlow 2.18.0.
+2) This repository is only intended to train the neural networks that approximate the marginalization functions. It does not constitute a complete Polar decoder but only a building block.
 
 ## Short summary
 This repository contains the code necessary to generate the training dataset and train models to approximate the decoding equations of a Polar code with arbitrary Kernel size. Feel free to play around with the training and simulation parameters to either reproduce the results in the paper or produce your own.
