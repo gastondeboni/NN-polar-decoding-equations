@@ -105,20 +105,13 @@ T = get_Tn(n)
 
 # parameters
 batch_size = 2**10
-ebn0_train = 5
-nb_codewords = 1000 #100*2**n
-llr_max = 10 # soft limit for llr max value
+ebn0_train = 1
+nb_codewords = 100*2**n
 data_type = 'zeros' # 'feedback', 'zeros'
 
 # saving parameters
 save_path = 'Datasets/T{}_{}-{}dB/'.format(n, data_type,ebn0_train)
-for i in range(1,10):
-    try:
-        os.makedirs(save_path)
-        break
-    except:
-        save_path = save_path[0:-1] + '-/'
-
+os.makedirs(save_path)
 shutil.copy(__file__, save_path+'script.py')
 
 #%%------------------------------------------------------------------------
