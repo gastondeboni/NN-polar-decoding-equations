@@ -21,6 +21,8 @@ This repository contains the code necessary to generate the training dataset and
 4) Open estimator_training.py, select the training SNR (must be a list that contains SNRs you have generated previously) and other parameters.
 5) Run.
 
+Alternatively, you can use the models already in the repo to build your decoder for polar code generated using a kernel of size 16.
+
 ## Reference
 The paper is currently under review for ISIT 2025.
 
