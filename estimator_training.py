@@ -160,7 +160,7 @@ x, y = x[permutation], y[permutation]
 ###                        Training
 #--------------------------------------------------------------------------
 
-loss_list, val_loss_list, epochs_list = [], [], []
+loss_list, epochs_list = [], []
 u = [6,12,8,8,16,12,12,12,12,12,8,4,4,2,1,1]
 for i in range(n):
     if u[i] == 0:
@@ -179,7 +179,7 @@ for i in range(n):
     # define callbackas and train
     EarlyStop = tf.keras.callbacks.EarlyStopping(monitor='loss',mode='min', patience=patience, verbose=0)
     init_train = time.time()
-    history = model.fit(x,y[:,i],batch_size,epochs=epochs,validation_split=0.15,callbacks=[EarlyStop], verbose=VERBOSE)
+    history = model.fit(x,y[:,i],batch_size,epochs=epochs,callbacks=[EarlyStop], verbose=VERBOSE)
     train_time = time.time() - init_train
     print('\nTraining time = {}h {}m {}s\n'.format(int(train_time//3600),int(train_time%3600)//60, int(train_time%3600) % 60))
     
@@ -188,15 +188,12 @@ for i in range(n):
 
     # plot learning curves
     loss = history.history['loss'][:]
-    val_loss = history.history['val_loss'][:]
     epochs_vec = np.arange(len(loss))
     loss_list.append(loss)
-    val_loss_list.append(val_loss)
     epochs_list.append(epochs_vec)
 
     plt.figure()
     plt.semilogy(epochs_vec, loss, '-b')
-    plt.semilogy(epochs_vec, val_loss, '.r')
     plt.title('Training loss')
     plt.grid('on', which='both', ls='--')
     plt.xlabel('epoch')
@@ -213,16 +210,6 @@ plt.grid('on', which='both', ls='--')
 plt.xlabel('epoch')
 plt.legend()
 plt.savefig(save_path+'loss_all.eps', format='eps', dpi=600)
-
-plt.figure()
-for i in range(n):
-    linetype = (i<=n/2)*'-' + (i>n/2)*':'
-    plt.semilogy(epochs_list[i], val_loss_list[i], linetype, label=f'{i}')
-plt.title('Validation loss')
-plt.grid('on', which='both', ls='--')
-plt.xlabel('epoch')
-plt.legend()
-plt.savefig(save_path+'val_loss_all.eps', format='eps', dpi=600)
 
 #%% 
 
